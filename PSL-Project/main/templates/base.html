@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>PSL Management System</title>
+  <link rel="icon" href="{% static 'images/image_processing20210518-11529-1lrjgs9.png' %}">
+
+  <style>
+ 
+    
+    <style>
+      
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+    
+      .stats-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+      }
+    
+      .stats-row {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+    
+      .stats-table {
+        border-collapse: collapse;
+        width: 200px;
+        border: 1px solid #000;
+        margin: 10px;
+      }
+    
+      .stats-table h2 {
+        text-align: center;
+        padding: 10px;
+        background-color: #f2f2f2;
+        margin: 0;
+      
+      }
+    
+      .stats-table th,
+      .stats-table td {
+        padding: 8px;
+        border: 1px solid #000;
+        text-align: left;}
+   
+        body {
+          background-color: #eaf7ed;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+    
+        #header {
+          background-color: #0f4d22;
+          padding: 20px;
+          color: #ffffff;
+          display: flex;
+          align-items: center;
+          animation: fade-in 1s ease-in-out;
+        }
+    
+        #logo img {
+          width: 100px;
+          height: 100px;
+        }
+    
+        #header-text {
+          font-size: 32px;
+          margin-left: 30px;
+        }
+    
+        #content {
+          margin-top: 50px;
+          display: flex;
+          justify-content: space-between;
+          padding: 20px;
+        }
+    
+        #navbar {
+          background-color: #0b3618;
+          padding: 20px;
+          color: #ffffff;
+          width: 400px;
+          height: fit-content;
+          border-radius: 10px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+          animation: fade-in 1s ease-in-out;
+        }
+    
+        #navbar a {
+          display: block;
+          color: #ffffff;
+          text-decoration: none;
+          margin-bottom: 10px;
+          padding: 10px;
+          border-radius: 5px;
+          transition: background-color 0.3s;
+        }
+    
+        #navbar a:hover {
+          background-color: #174f27;
+        }
+    
+        #main-content {
+          flex-grow: 1;
+          padding: 20px;
+          background-color: #c2dcc0;
+          border-radius: 10px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+          animation: fade-in 1s ease-in-out;
+        }
+    
+        h2 {
+          color: #000000;
+          font-size:}
+
+      
+       
+  </style>
+</head>
+
+<body>
+  <div id="header">
+    <div id="logo">
+      <img src="{% static 'images/image_processing20210518-11529-1lrjgs9.png' %}" alt="Logo">
+    </div>
+    <h1 id="header-text">PSL Management System WELCOME {{name}} </h1>
+  </div>
+
+
+  <div id="content">
+    <div id="navbar">
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'season' %}">Season</a>
+      <a href="{% url 'team' %}">Teams</a>
+      <a href="{% url 'pointable' %}">Point Table</a>
+      <a href="{% url 'schedule' %}">Schedule</a>
+      <a href="{% url 'stats' %}">Stats</a>
+      <a href="{% url 'about' %}">About</a>
+      <a href="{% url 'logout' %}">Logout</a>
+    </div>
+
+    {% block body %}
+
+    {% endblock %}
+
+  </div>
+
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var mainContent = document.getElementById("main-content");
+      mainContent.classList.add("fade-in");
+    });
+  </script>
+</body>
+
+</html>
+
+
+
+
+
+  

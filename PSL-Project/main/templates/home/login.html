@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <style>
+    body {
+      background-image: url("{% static 'images/1.webp' %}");
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 800px;
+      margin: 100px auto;
+      background-color: rgba(255, 255, 255, 0.1);   
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .container h1 {
+      text-align: center;
+      flex-basis: 100%;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      flex-basis: 50%;
+      margin-left: 5%;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .form-group input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 5px;
+      border: none;
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .form-group img {
+      display: block;
+      margin: 0 auto 20px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .role-buttons {
+      margin-left: 5%;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .form-group {
+        flex-basis: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Login</h1>
+    <div class="form-group">
+      <img src="{% static 'images/HBL-PSL-2018-logo-images.jpg' %}" alt="Login Image">
+    </div>
+    <form method="POST">
+      {% csrf_token %}
+      
+      {{ form.as_p }}
+      
+      
+      <input type="submit" value="Login" style="margin-left:30%;margin-top:5%">
+      <p style="margin-left:5%;margin-top:5%">Don't have an account?</p>
+      <a style="margin-left:50%" href="{% url 'signup' %}">Signup</a>
+    </form>
+  </div>
+</body>
+</html>

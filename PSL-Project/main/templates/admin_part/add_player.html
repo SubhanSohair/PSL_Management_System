@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PSL Management System - Add Player</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #d4f4db;
+    }
+
+    h1 {
+      color: #ffffff;
+      text-align: center;
+      padding-top: 20px;
+    }
+
+    form {
+      background-color: #f0fff7;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      margin: 0 auto;
+      max-width: 400px;
+    }
+
+    .form-group {
+      text-align: center;
+    }
+
+    /* Add your custom styles here */
+  </style>
+</head>
+<body>
+  <h1>Add Player</h1>
+  <form method="post" action="{% url 'add'  %}"  enctype="multipart/form-data"   >
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Add Player</button>
+    </div>
+  </form>
+
+  <!-- Add your scripts and additional content here -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+          crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+
+{% extends "base.html" %}
+
+{% block body %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+<table class="table table-dark table-hover table-striped" style="margin: 0 auto;">
+    <thead>
+      <tr>
+        <th>Team 1</th>
+        <th>Team 2</th>
+        <th>Date</th>
+        <th>Stadium</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for match in match %}
+      <tr>
+        <td>{{ match.team_1.name }}</td>
+        <td>{{ match.team_2.name }}</td>
+        <td>{{ match.match_date }}</td>
+        <td>{{ match.stadium }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+{% endblock %}

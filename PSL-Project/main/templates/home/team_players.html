@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .team-background {
+        background-color: white;
+        display: flex;
+        flex-direction: column; /* Change flex-wrap to flex-direction */
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .team-name {
+        margin-top: 20px; /* Add margin-top to create space */
+    }
+
+    .player-card {
+        position: relative;
+        width: 250px;
+        height: 400px;
+        perspective: 1000px;
+        margin: 20px;
+    }
+
+    .player-card-inner {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: transform 0.5s;
+    }
+
+    .player-card:hover .player-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .player-card-front,
+    .player-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .player-card-back {
+        transform: rotateY(180deg);
+        background-color: white;
+    }
+
+    .player-picture {
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+        border-radius: 5px;
+    }
+
+    .player-info {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .player-name {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .player-role {
+        font-size: 16px;
+        font-weight: normal;
+        margin-bottom: 5px;
+    }
+
+    .player-age {
+        font-size: 16px;
+        font-weight: normal;
+    }
+
+    .team-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+    }
+
+    .coach-card {
+        width: 200px;
+        margin: 20px;
+        text-align: center;
+    }
+
+    .coach-picture {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+
+    .coach-name {
+        font-size: 18px;
+        font-weight: bold;
+    }
+</style>
+
+<div class="team-background">
+    <h1 class="team-name">Team: {{ team.name }}</h1> <!-- Move the team name here -->
+    <h2>Players</h2>
+    <div class="team-section">
+        {% for player in players %}
+        <div class="player-card">
+            <div class="player-card-inner">
+                <div class="player-card-front">
+                    <img class="player-picture" src="{{ player.image.url }}" alt="{{ player.name }}">
+                    <div class="player-info">
+                        <div class="player-name">{{ player.name }}</div>
+                        <div class="player-role">Batter</div>
+                        <div class="player-age">Age: {{ player.age }}</div>
+                    </div>
+                </div>
+                <div class="player-card-back">
+                    <img class="player-picture" src="{{ player.image.url }}" alt="{{ player.name }}">
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <h2>Coach</h2>
+    <div class="team-section">
+        {% for coach in coaches %}
+        <div class="coach-card">
+            <img class="coach-picture" src="{{ coach.image.url }}" alt="{{ coach.name }}">
+            <div class="coach-name">{{ coach.name }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

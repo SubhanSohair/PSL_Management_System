@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<style>
+  .seasons-table-container {
+    margin: 0 auto;
+    max-width: 800px;
+  }
+</style>
+<div class="seasons-table-container">
+  <table class="table table-dark table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Season Number</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Year</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for season in season %}
+      <tr>
+        <td>Season {{ season.number }}</td>
+        <td>{{ season.start_date|date:"F j, Y" }}</td>
+        <td>{{ season.end_date|date:"F j, Y" }}</td>
+        <td>{{ season.year }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

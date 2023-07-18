@@ -1,0 +1,18 @@
+
+{% extends "base.html" %}
+
+
+
+{% block body %}
+<div id="main-content">
+  <ul class="team-list">
+    {% for season in seasons %}
+    <li><a href="{% url 's_pointtable' season.id %}" style="color: #ffffff;">Season {{ season.number }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+
+
+{% endblock %}

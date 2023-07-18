@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<style>
+  .team-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #f1f1f1;
+    padding: 20px;
+  }
+
+  .team-card {
+    width: 300px;
+    height: 400px; /* Adjust the height as needed */
+    margin: 10px;
+    cursor: pointer;
+    background-color: #ffffff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .team-card img {
+    width: 100%;
+    height: 70%; /* Adjust the height as needed */
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+  }
+
+  .team-name {
+    padding: 10px;
+    text-align: center;
+  }
+</style>
+
+<div id="main-content">
+  <h1>Select a Team</h1>
+
+  <div class="team-list">
+    {% for team in teams %}
+    <div class="team-card" onclick="location.href='{% url 'team_players' team.id %}'">
+      <img src="{{ team.image.url }}" alt="{{ team.name }}">
+      <div class="team-name">
+        <h3>{{ team.name }}</h3>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
